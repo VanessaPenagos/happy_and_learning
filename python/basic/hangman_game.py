@@ -99,7 +99,7 @@ def run():
 
     while True:
         display_board(hidden_word,tries)
-        current_letter = str(raw_input('Elige una letra: '))
+        current_letter = str(raw_input('Choose a letter: '))
 
         letter_indexes = []
         for i in range(len(word)):
@@ -112,7 +112,7 @@ def run():
         if tries == 7:
             display_board(hidden_word,tries)
             print(' ')
-            print('¿Perdiste! La palabra correcta era: {}'.format(word))
+            print('You lost! The correct word was: {}'.format(word))
             break
         else:
             for idx in letter_indexes:
@@ -122,5 +122,5 @@ def run():
 
 if __name__ == '__main__':
     print('')
-    print('A R M Y    A H O R C A D O S')
+    print('A R M Y    H A N G M A N   G A M E')
     run()
