@@ -80,7 +80,20 @@ def cypher(message):
         cypher_message.append(cypher_word)
     return ' '.join(cypher_message)
 
-def
+def decipher(message):
+    words = message.split(' ')
+    decipher_message = []
+
+    for word in words:
+        decipher = ''
+        for letter in word:
+            for key,value in KEYS.iteritems():
+                if value == letter:
+                    decipher += key
+        decipher_message.append(decipher)
+
+    return ' '.join(decipher_message)
+
 
 def run():
     while True:
@@ -92,15 +105,17 @@ Welcome to cryptography. What do you want to do?
     1. encrypt message
     2. decrypt message
     3. exit
-        '''))
+'''))
 
         if command == '1':
             message = str(raw_input('What is your message? '))
             cypher_message = cypher(message)
-            print cypher_message
+            print(cypher_message)
 
         elif command == '2':
-            print('decrypt')
+            message = str(raw_input('What is your cypher message? '))
+            decypher_message = decipher(message)
+            print(decypher_message)
         elif command == '3':
             print('Bye!')
             exit()
