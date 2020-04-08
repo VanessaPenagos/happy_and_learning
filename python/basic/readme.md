@@ -1,6 +1,8 @@
+for virtual environment:
+
 **Create virtual environment**
   * virtualenv venv
-  
+
 **Activate virtual environment**
   * source venv/bin/activate
 
