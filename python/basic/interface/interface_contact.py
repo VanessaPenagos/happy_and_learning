@@ -7,7 +7,6 @@ class Contact:
         self._phone = phone
         self._email = email
 
-
 class ContactBook:
 
     def __init__(self):
@@ -20,6 +19,22 @@ class ContactBook:
     def show_all(self):
         for contact in self._contacts:
             self._print_contact(contact)
+
+    def delete(self,name):
+        for idx, contact in enumerate(self._contacts):
+            if contact._name.lower() == name.lower():
+                del self._contacts[idx]
+                break
+        else:
+            print('contact not found!')
+
+    def search(self,name):
+        for contact in self._contacts:
+            if contact._name.lower() == name.lower():
+                self._print_contact(contact)
+                break
+        else:
+            print('contact not found!')
 
     def _print_contact(self, contact):
         print('----------------------------------')
@@ -53,10 +68,12 @@ def run():
             print('update contact')
 
         elif command == 's':
-            print('search contact')
+            name = str(input('Write the contact name: '))
+            contact_book.search(name)
 
         elif command == 'd':
-            print('delete contact')
+            name = str(input('Write the contact name: '))
+            contact_book.delete(name)
 
         elif command == 'l':
             contact_book.show_all()
