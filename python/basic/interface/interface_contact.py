@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
 class Contact:
 
     def __init__(self, name, phone, email):
@@ -15,7 +14,19 @@ class ContactBook:
         self._contacts = []
 
     def add(self, name, phone, email):
-        print('name: {}, phone: {}, email: {}'.format(name, phone, email))
+        contact = Contact(name,phone,email)
+        self._contacts.append(contact)
+
+    def show_all(self):
+        for contact in self._contacts:
+            self._print_contact(contact)
+
+    def _print_contact(self, contact):
+        print('----------------------------------')
+        print('Name: {}'.format(contact._name))
+        print('Number: {}'.format(contact._phone))
+        print('Email: {}'.format(contact._email))
+        print('----------------------------------')
 
 def run():
     contact_book = ContactBook()
@@ -38,7 +49,6 @@ def run():
             email = str(input('Write the contact email: '))
 
             contact_book.add(name, phone, email)
-
         elif command == 'u':
             print('update contact')
 
@@ -49,7 +59,7 @@ def run():
             print('delete contact')
 
         elif command == 'l':
-            print('list contacts')
+            contact_book.show_all()
 
         elif command == 'e':
             break
