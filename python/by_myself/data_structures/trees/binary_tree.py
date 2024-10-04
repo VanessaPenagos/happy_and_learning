@@ -32,6 +32,27 @@ class BinaryTree:
             print(node.value, end=' ')
             self.in_order(node.right)
 
+    def pre_order(self, node):
+        if node:
+            print(node.value, end=' ')
+            self.pre_order(node.left)
+            self.pre_order(node.right)
+
+    def post_order(self, node):
+        if node:
+            self.post_order(node.left)
+            self.post_order(node.right)
+            print(node.value, end=' ')
+
+    def count_leaves(self, node):
+        if node is None:
+            return 0
+        if node.left is None and node.right is None:
+            return 1
+        return self.count_leaves(node.left) + self.count_leaves(node.right)
+
+
+
 tree = BinaryTree()
 tree.insert(5)
 tree.insert(3)
